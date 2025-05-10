@@ -11,7 +11,6 @@ import { format } from "date-fns"; // Add this import for the format function
 import PlanSelect from "./PlanSelect";
 import BillingCycleSelect from "./BillingCycleSelect";
 import DateInput from "./DateInput";
-import CurrencySelect from "./CurrencySelect";
 import { 
   planData, 
   BillingCycle, 
@@ -22,8 +21,8 @@ import {
 } from "@/utils/calculatorUtils";
 
 const CalculatorForm = () => {
-  // Currency state
-  const [currencySymbol, setCurrencySymbol] = useState("NPR");
+  // Currency state - Now hardcoded to NPR since we removed the settings
+  const currencySymbol = "NPR";
   
   // Current plan states
   const [currentPlan, setCurrentPlan] = useState("");
@@ -127,21 +126,6 @@ const CalculatorForm = () => {
 
   return (
     <div className="space-y-8">
-      <Card className="calculator-card">
-        <CardHeader>
-          <CardTitle className="text-xl">Currency Settings</CardTitle>
-          <CardDescription>Select your preferred currency</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="currency">Currency</Label>
-              <CurrencySelect value={currencySymbol} onChange={setCurrencySymbol} />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
       <Card className="calculator-card">
         <CardHeader>
           <CardTitle className="text-xl">Current Plan Details</CardTitle>
