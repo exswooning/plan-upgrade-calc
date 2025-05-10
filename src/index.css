@@ -90,8 +90,12 @@
     @apply border-border;
   }
 
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground transition-colors duration-300 font-light;
   }
 }
 
@@ -143,4 +147,29 @@
 
 .dark .win11-shadow {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Raleway-specific enhancements */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-medium tracking-tight;
+}
+
+.title-large {
+  @apply text-4xl md:text-5xl font-semibold tracking-tighter;
+}
+
+.title-medium {
+  @apply text-2xl md:text-3xl font-medium tracking-tight;
+}
+
+.title-small {
+  @apply text-xl md:text-2xl font-medium;
+}
+
+input, select, button {
+  @apply font-normal;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
