@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { toast } from "@/hooks/use-toast";
 import { Separator } from "@/components/ui/separator";
+import { format } from "date-fns"; // Add this import for the format function
 import PlanSelect from "./PlanSelect";
 import BillingCycleSelect from "./BillingCycleSelect";
 import DateInput from "./DateInput";

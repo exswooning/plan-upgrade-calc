@@ -1,3 +1,4 @@
+
 import { addDays, differenceInDays, isLeapYear } from "date-fns";
 
 // Define plan data types
@@ -77,7 +78,9 @@ export const planData: PlanData = {
   "Windows VPS plan 4C / 8G": {
     annually: 68478
   },
-  "Cloud Mazzako": {}
+  "Cloud Mazzako": {
+    annually: 0 // Added the required annually property with a default value of 0
+  }
 };
 
 // List of all plan names for dropdown
