@@ -29,7 +29,9 @@ const CalculatorForm = () => {
   const [currentBillingCycle, setCurrentBillingCycle] = useState<BillingCycle>("annually");
   const [currentPlanPrice, setCurrentPlanPrice] = useState<number | "">("");
   const [startDate, setStartDate] = useState(new Date());
-  const [currentDate, setCurrentDate] = useState(new Date("2025-05-10")); // Using the specified date: May 10, 2025
+  
+  // Use the actual current date instead of a hardcoded date
+  const [currentDate, setCurrentDate] = useState(() => new Date());
   
   // New plan states
   const [newPlan, setNewPlan] = useState("");
@@ -172,6 +174,7 @@ const CalculatorForm = () => {
                   value={startDate}
                   onChange={setStartDate}
                   label="Start Date"
+                  allowInput={true}
                 />
               </div>
               <div className="grid gap-2">
@@ -180,6 +183,7 @@ const CalculatorForm = () => {
                   value={currentDate}
                   onChange={setCurrentDate}
                   label="Today's Date"
+                  allowInput={true}
                 />
               </div>
             </div>
