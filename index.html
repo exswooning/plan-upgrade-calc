@@ -4,29 +4,171 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>plan-upgrade-calc</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-
-    <meta property="og:title" content="plan-upgrade-calc" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <title>Hosting Upgrade Calculator</title>
+    <meta name="description" content="Calculate the prorated cost of upgrading your hosting plan" />
     
     <!-- Add Raleway Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="container">
+      <div class="calculator-container">
+        <div class="calculator-header glass rounded-xl">
+          <h1 class="title-large text-primary">
+            Hosting Upgrade Calculator
+          </h1>
+          <button id="theme-toggle" class="theme-toggle glass" aria-label="Toggle theme">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </button>
+        </div>
+        <p class="text-lg text-muted-foreground text-balance">
+          Calculate the prorated cost of upgrading your hosting plan
+        </p>
+        
+        <div class="form-container">
+          <!-- Current Plan Card -->
+          <div class="calculator-card">
+            <div class="card-header">
+              <h2 class="text-xl">Current Plan Details</h2>
+              <p class="card-description">Enter information about your current hosting plan</p>
+            </div>
+            <div class="card-content">
+              <div class="grid">
+                <div class="grid-2">
+                  <div class="form-group">
+                    <label for="currentPlan">Current Plan</label>
+                    <select id="currentPlan" class="select">
+                      <option value="" disabled selected>Select Current Plan</option>
+                      <option value="Basic">Basic</option>
+                      <option value="Standard">Standard</option>
+                      <option value="Premium">Premium</option>
+                      <option value="Business">Business</option>
+                      <option value="Enterprise">Enterprise</option>
+                      <option value="Other">Other - Enter Manually</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="currentBillingCycle">Current Billing Cycle</label>
+                    <select id="currentBillingCycle" class="select">
+                      <option value="monthly">Monthly</option>
+                      <option value="annually" selected>Annually</option>
+                      <option value="triennially">Triennially</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="currentPlanPrice">Current Plan Price (NPR)</label>
+                  <input id="currentPlanPrice" type="number" placeholder="Enter current plan price" class="input">
+                </div>
+                
+                <div class="grid-2">
+                  <div class="form-group">
+                    <label for="startDate">Start Date of Current Billing Cycle</label>
+                    <input id="startDate" type="date" class="input">
+                  </div>
+                  <div class="form-group">
+                    <label for="currentDate">Today's Date</label>
+                    <input id="currentDate" type="date" class="input">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- New Plan Card -->
+          <div class="calculator-card">
+            <div class="card-header">
+              <h2 class="text-xl">New Plan Details</h2>
+              <p class="card-description">Enter information about the plan you want to upgrade to</p>
+            </div>
+            <div class="card-content">
+              <div class="grid">
+                <div class="grid-2">
+                  <div class="form-group">
+                    <label for="newPlan">New Plan</label>
+                    <select id="newPlan" class="select">
+                      <option value="" disabled selected>Select New Plan</option>
+                      <option value="Basic">Basic</option>
+                      <option value="Standard">Standard</option>
+                      <option value="Premium">Premium</option>
+                      <option value="Business">Business</option>
+                      <option value="Enterprise">Enterprise</option>
+                      <option value="Other">Other - Enter Manually</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="newBillingCycle">New Billing Cycle</label>
+                    <select id="newBillingCycle" class="select">
+                      <option value="monthly">Monthly</option>
+                      <option value="annually" selected>Annually</option>
+                      <option value="triennially">Triennially</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="newPlanPrice">New Plan Price (NPR)</label>
+                  <input id="newPlanPrice" type="number" placeholder="Enter new plan price" class="input">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-container">
+            <button id="calculateBtn" class="btn-primary">
+              Calculate Prorated Upgrade Cost
+            </button>
+          </div>
+
+          <!-- Results Card (hidden by default) -->
+          <div id="resultCard" class="calculator-result hidden">
+            <div class="card-content">
+              <div class="result-content">
+                <div class="text-center">
+                  <h3 class="text-2xl">Calculation Results</h3>
+                  <hr class="separator">
+                </div>
+                
+                <div class="text-center">
+                  <p class="text-xl mb-2">The estimated prorated upgrade cost to</p>
+                  <p id="resultNewPlan" class="text-2xl font-bold text-primary mb-2">
+                    Premium (annually)
+                  </p>
+                  <p class="text-xl mb-2">is:</p>
+                  <p id="resultAmount" class="text-4xl font-bold text-primary mb-4">
+                    NPR 2,500.00
+                  </p>
+                  <p id="resultDays" class="text-lg">
+                    for the remaining <strong>270</strong> days of your current <strong>Basic (annually)</strong> cycle.
+                  </p>
+                </div>
+
+                <div class="alert mt-6">
+                  <div class="alert-title">Next Billing Information</div>
+                  <div id="resultNextBilling" class="alert-description">
+                    Your next billing date for the <strong>Premium</strong> at its regular price of <strong>NPR 12,000</strong> per <strong>annually</strong> will be approximately <strong>May 11, 2026</strong>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Toast notification container -->
+        <div id="toastContainer" class="toast-container"></div>
+        
+        <footer class="text-center text-muted-foreground glass rounded-xl">
+          <p>© 2025 Hosting Upgrade Calculator. All rights reserved.</p>
+        </footer>
+      </div>
+    </div>
+
+    <script src="calculator.js"></script>
   </body>
 </html>
